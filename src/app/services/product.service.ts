@@ -8,6 +8,9 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
+  // TODO: Update this URL with actual URL
+  private apiUrl = 'http://localhost:5000/api/products';  // Update with your actual API URL
+
 
   constructor() { }
 }
