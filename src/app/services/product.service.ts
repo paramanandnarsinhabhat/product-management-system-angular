@@ -7,10 +7,19 @@ import { Product } from '../models/product';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
   // TODO: Update this URL with actual URL
-  private apiUrl = 'http://localhost:5000/api/products';  // Update with your actual API URL
+  
+  private apiUrl = 'http://your-backend-api-url/api/products'; // Replace with your actual backend API URL
 
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  }
 }
