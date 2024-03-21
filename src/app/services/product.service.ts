@@ -37,8 +37,13 @@ export class ProductService {
     return this.http.get<Product[]>(searchUrl);
   }
 
+  getTotalCount(): Observable<number> {
+    const totalCountUrl = `${this.apiUrl}/total-count`;
+    return this.http.get<number>(totalCountUrl);
+  }
   
   
+
 
 
 
