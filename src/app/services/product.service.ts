@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 
@@ -47,6 +47,14 @@ export class ProductService {
     return this.http.get<Product[]>(categoryUrl);
   }
   
+  getSortedProducts(sortBy: string, sortOrder: 'asc' | 'desc' = 'asc'): Observable<Product[]> {
+    // Set HTTP Params
+    let params = new HttpParams();
+    params = params.append('sortBy', sortBy);
+    params = params.append('sortOrder', sortOrder);
+
+    return this.http.get<Product[]>(`${this.apiUrl}/sort`, { params });
+  }
 
 
 
