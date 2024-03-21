@@ -42,6 +42,10 @@ export class ProductService {
     return this.http.get<number>(totalCountUrl);
   }
   
+  getProductsByCategory(category: string): Observable<Product[]> {
+    const categoryUrl = `${this.apiUrl}/category/${encodeURIComponent(category)}`;
+    return this.http.get<Product[]>(categoryUrl);
+  }
   
 
 
