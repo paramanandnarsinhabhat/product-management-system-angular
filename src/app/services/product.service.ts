@@ -27,7 +27,12 @@ export class ProductService {
     return this.http.get<Product[]>(this.apiUrl);
   }
 
+  // Method to get a single product by its ID
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
   
+
 
 
 }
