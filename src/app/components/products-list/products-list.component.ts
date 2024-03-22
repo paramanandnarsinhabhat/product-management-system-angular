@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products-list',
@@ -12,6 +13,7 @@ import { Product } from '../../models/product';
 export class ProductsListComponent implements OnInit {
   products: Product[] = [];
 
+  private subscriptions = new Subscription();
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
@@ -19,6 +21,16 @@ export class ProductsListComponent implements OnInit {
 
   }
 
+  loadProducts(): void {
+    this.productService.getProducts().subscribe(
+      (data: Product[]) => {
+        this.products = data;
+      },
+      error => {
+        // Handle error
+        console.error('Error fetching products', error);
+      }
+    );
+  }
 
-  
 }
