@@ -35,12 +35,12 @@ export class ProductDetailsComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching product with id', id, error);
-        // Handle the error, for example, redirect to a not found page or display a message
+        // Handle the error
       },
-      complete: () => console.log('Product details loading completed') // Optional
+      complete: () => console.log('Product details loading completed') 
     });
   }
-  
+
   
 
 }
