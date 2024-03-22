@@ -22,15 +22,22 @@ export class ProductsListComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.productService.getProducts().subscribe(
-      (data: Product[]) => {
-        this.products = data;
-      },
-      error => {
-        // Handle error
-        console.error('Error fetching products', error);
-      }
+    this.subscriptions.add(
+      this.productService.getProducts().subscribe({
+        next: (data: Product[]) => {
+          this.products = data;
+        },
+        error: (error) => {
+          console.error('Error fetching products', error);
+          // Implement your error handling logic here
+        },
+        complete: () => console.log('Product loading completed')
+      })
     );
+  }
+  
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }
