@@ -11,7 +11,7 @@ import { Product } from '../models/product';
 export class ProductService {
   // TODO: Update this URL with actual URL
   
-  private apiUrl = 'http://your-backend-api-url/api/products'; // Replace with your actual backend API URL
+  private apiUrl = 'http://your-backend-api-url/api/products'; // Replace with actual backend API URL
 
   constructor(private http: HttpClient) {}
 
