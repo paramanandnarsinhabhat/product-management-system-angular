@@ -1,1 +1,12 @@
-<p>products-by-category works!</p>
+<div class="products-by-category">
+    <h3>Products in '{{ category }}' Category:</h3>
+    <ul *ngIf="products.length; else noProductsTemplate">
+      <li *ngFor="let product of products">
+        {{ product.name }} - ${{ product.price }}
+      </li>
+    </ul>
+    <ng-template #noProductsTemplate>
+      <p>No products found in this category.</p>
+    </ng-template>
+  </div>
+  
