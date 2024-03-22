@@ -8,19 +8,18 @@ import { Product } from '../../models/product';
 })
 
 export class SingleProductDeleteComponent {
-  productId!: number; // Initialize this with the ID of the product to delete
-
+  productId!: number; 
   constructor(private productService: ProductService) {}
 
   deleteProduct(id: number): void {
     this.productService.deleteProduct(id).subscribe({
       next: () => {
         console.log('Product deleted successfully');
-        // Handle successful deletion, e.g., refreshing the list or showing a message
+        // Handle successful deletion, 
       },
       error: (error) => {
         console.error('Error deleting product', error);
-        // Handle errors, such as showing an error message to the user
+        // Handle errors, 
       }
     });
   }
