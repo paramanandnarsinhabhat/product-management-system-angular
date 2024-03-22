@@ -56,6 +56,10 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.apiUrl}/sort`, { params });
   }
 
+  updateProduct(id: number, product: Product): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, product);
+  }
+  
 
 
 
