@@ -16,16 +16,16 @@ export class ProductSearchComponent {
 
   searchProducts(): void {
     if (this.searchQuery) {
-      this.productService.searchProductsByName(this.searchQuery).subscribe(
-        (data: Product[]) => {
+      this.productService.searchProductsByName(this.searchQuery).subscribe({
+        next: (data: Product[]) => {
           this.products = data;
         },
-        error => {
+        error: (error) => {
           // Handle error here, e.g., showing an error message
           console.error('Error occurred while searching for products', error);
         }
-      );
+      });
     }
-
-}
+  }
+  
 }
