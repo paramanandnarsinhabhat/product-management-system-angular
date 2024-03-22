@@ -11,7 +11,7 @@ import { Product } from '../../models/product';
   styleUrl: './product-edit.component.scss'
 })
 
-export class ProductEditComponent implements OnInit {
+export class ProductEditComponent {
   productForm!: FormGroup;
   productId!: number;
 
@@ -35,20 +35,9 @@ export class ProductEditComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.productId = params['id'];
-      this.loadProductDetails(this.productId);
-    });
+  
 
-
-  }
-
-  loadProductDetails(id: number): void {
-    this.productService.getProductById(id).subscribe(product => {
-      this.productForm.patchValue(product);
-    });
-  }
+  
 
   product: Product = {
     id: 1, // Example ID
