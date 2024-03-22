@@ -1,1 +1,19 @@
-<p>product-search works!</p>
+<div class="product-search">
+    <h2>Search for a Product</h2>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Enter product name" />
+    <button (click)="searchProducts()">Search</button>
+  
+    <div *ngIf="products.length > 0">
+      <h3>Search Results:</h3>
+      <ul>
+        <li *ngFor="let product of products">
+          {{ product.name }} - {{ product.category }} - ${{ product.price }}
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="products.length === 0">
+      <p>No products found.</p>
+    </div>
+  </div>
+  
