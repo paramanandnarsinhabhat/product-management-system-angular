@@ -1,1 +1,14 @@
-<p>product-details works!</p>
+<div *ngIf="product; else notFoundTemplate" class="product-details">
+    <h2>Product Details</h2>
+    <p>Name: {{ product.name }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p>Category: {{ product.category }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <!-- Add more fields as necessary when specified -->
+  </div>
+  
+  
+  <ng-template #notFoundTemplate>
+    <p>Product not found.</p>
+  </ng-template>
+  
