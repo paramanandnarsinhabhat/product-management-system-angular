@@ -1,1 +1,12 @@
-<p>product-edit works!</p>
+<div class="product-edit">
+    <h2>Edit Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+      <!-- Form fields for product properties -->
+      <input formControlName="name" placeholder="Name" required>
+      <textarea formControlName="description" placeholder="Description"></textarea>
+      <input formControlName="category" placeholder="Category" required>
+      <input type="number" formControlName="price" placeholder="Price" required>
+      <button type="submit" [disabled]="!productForm.valid">Update Product</button>
+    </form>
+  </div>
+  
