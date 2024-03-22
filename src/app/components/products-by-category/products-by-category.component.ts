@@ -31,15 +31,17 @@ export class ProductsByCategoryComponent implements OnInit {
   }
 
   loadProductsByCategory(category: string): void {
-    this.productService.getProductsByCategory(category).subscribe(
-      (products: Product[]) => {
+    this.productService.getProductsByCategory(category).subscribe({
+      next: (products: Product[]) => {
         this.products = products;
       },
-      error => {
+      error: (error) => {
         console.error(`Error occurred while fetching products for category ${category}`, error);
-      
-      }
-    );
+        // Handle the error state here, e.g., set products to an empty array or show an error message
+      },
+      complete: () => console.log('Completed fetching products for category')
+    });
   }
+  
   
 }
