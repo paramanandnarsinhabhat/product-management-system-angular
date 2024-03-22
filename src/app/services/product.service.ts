@@ -47,7 +47,7 @@ export class ProductService {
     return this.http.get<Product[]>(categoryUrl);
   }
   
-  getSortedProducts(sortBy: string, sortOrder: 'asc' | 'desc' = 'asc'): Observable<Product[]> {
+  getSortedProducts(sortBy: string, sortOrder: 'asc' | 'desc'): Observable<Product[]> {
     // Set HTTP Params
     let params = new HttpParams();
     params = params.append('sortBy', sortBy);
