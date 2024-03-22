@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product-details',
@@ -7,6 +10,7 @@ import { Component } from '@angular/core';
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
+
 export class ProductDetailsComponent {
 
 }
